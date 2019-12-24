@@ -1,0 +1,35 @@
+# 定义 stages
+stages:
+  - install
+  - build
+  - deploy
+  
+cache:
+  paths:
+    - node_modules/
+    - m-tigerprawn-hand/
+  
+  # 定义 job
+install:
+  stage: install
+  only:
+    - master
+  script:
+    - npm i
+    
+# 定义 job
+build:
+  stage: build
+  only:
+    - master
+  script:
+    - npm run build
+    
+# 定义 job
+deploy:
+  stage: deploy
+  only:
+    - develop
+  script:
+    - mv m-tigerprawn-hand /home/lxz/sl/deploy/childApp/m-tigerprawn-hand
+
