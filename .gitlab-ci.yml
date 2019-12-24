@@ -1,4 +1,4 @@
-image: wisetc/cnode
+image: wisetc/cnode:8
 
 # 定义 stages
 stages:
