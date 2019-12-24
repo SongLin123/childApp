@@ -2,7 +2,6 @@ image: node:12
 
 # 定义 stages
 stages:
-  - install
   - build
   
 cache:
@@ -10,19 +9,6 @@ cache:
   paths:
     - node_modules/
 
-  # 定义 job
-install:
-  stage: install
-  only:
-    - master
-  script:
-    - node -v
-    - npm install -g cnpm --registry=https://registry.npm.taobao.org
-    - cnpm -v
-    - cnpm install
-    - cnpm install -g @vue/cli
-  tags:
-    - vue
     
 # 定义 job
 build:
@@ -30,6 +16,10 @@ build:
   only:
     - master
   script:
+    - node -v
+    - npm install -g cnpm --registry=https://registry.npm.taobao.org
+    - cnpm -v
+    - cnpm install
     - npm run build
     - ls 
     - scp -r m-tigerprawn-hand lxz@192.168.63.200:/home/lxz/sl/deploy/childApp/
