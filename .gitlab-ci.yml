@@ -20,6 +20,7 @@ install:
     - npm install -g cnpm --registry=https://registry.npm.taobao.org
     - cnpm -v
     - cnpm install
+    - cnpm install -g @vue/cli
   tags:
     - vue
     
