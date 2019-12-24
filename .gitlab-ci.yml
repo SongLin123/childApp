@@ -9,7 +9,13 @@ cache:
   paths:
     - node_modules/
     - m-tigerPrawn-hand/
-  
+
+before_script:
+  - node -v
+  - npm install -g cnpm --registry=https://registry.npm.taobao.org
+  - cnpm -v
+  - cnpm install
+
   # 定义 job
 install:
   stage: install
