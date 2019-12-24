@@ -27,7 +27,7 @@ build:
   only:
     - master
   script:
-    - ls -lh /dev/myproject
+    - ls -lh /dev/m-tigerprawn-hand
     - npm run build
     - ls -lh m-tigerprawn-hand
     - cp -r m-tigerprawn-hand/* /dev/m-tigerprawn-hand
