@@ -1,4 +1,4 @@
-image: wisetc/cnode:8
+image: node:12
 
 # 定义 stages
 stages:
@@ -29,10 +29,9 @@ build:
   only:
     - master
   script:
-    - ls -lh /dev/m-tigerprawn-hand
     - npm run build
-    - ls -lh m-tigerprawn-hand
-    - cp -r m-tigerprawn-hand/* /dev/m-tigerprawn-hand
+    - ls 
+    - scp -r m-tigerprawn-hand lxz@192.168.63.200:/home/lxz/sl/deploy/childApp/
   tags:
     - vue
     
