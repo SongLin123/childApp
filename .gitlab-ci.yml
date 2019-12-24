@@ -31,7 +31,7 @@ build:
     - cnpm install
     - npm run build
     - ls 
-    - scp -r m-tigerprawn-hand lxz@192.168.63.200:/home/lxz/sl/deploy/childApp/
+    - scp -r m-tigerprawn-hand root@192.168.63.200:/home/lxz/sl/deploy/childApp/
   tags:
     - vue
     
