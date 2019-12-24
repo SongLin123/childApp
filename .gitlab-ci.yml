@@ -8,7 +8,7 @@ cache:
   key: "$CI_JOB_NAME"
   paths:
     - node_modules/
-    - m-tigerprawn-hand/
+    - m-tigerPrawn-hand/
   
   # 定义 job
 install:
