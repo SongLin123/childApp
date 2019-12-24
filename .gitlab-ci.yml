@@ -4,9 +4,11 @@ before_script:
   - echo "$SSH_PRIVATE_KEY"
   - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
   - eval $(ssh-agent -s)
-  - ssh-add <(echo "$SSH_PRIVATE_KEY")
+  - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
   - mkdir -p ~/.ssh
   - chmod 700 ~/.ssh
+  - ssh-keyscan 192.168.63.200 >> ~/.ssh/known_hosts
+  - chmod 644 ~/.ssh/known_hosts
   - '[[ -f /.dockerinit ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
 
 # 定义 stages
