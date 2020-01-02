@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2019-11-14 11:32:35
- * @LastEditTime : 2019-12-24 12:06:41
+ * @LastEditTime : 2020-01-02 17:18:43
  * @LastEditors  : Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \mobile-cam\src\router\index.ts
@@ -19,7 +19,7 @@ Vue.use(VueRouter)
  */
 
 export default  new VueRouter({
-    base: (window as any).__POWERED_BY_QIANKUN__ ? '/m-tigerprawn-hand/' : '/childApp/m-tigerprawn-hand/',
+    base: (window as any).__POWERED_BY_QIANKUN__ ? '/m-tigerprawn-dingmsg/' : '/childApp/m-tigerprawn-dingmsg/',
     mode: 'history',
     routes,
   })
