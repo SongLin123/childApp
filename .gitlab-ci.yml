@@ -1,24 +1,17 @@
 image: node:12
-
-
-
 # 定义 stages
 stages:
   - testbuild
   - deploybuild
-  
 cache:
   paths:
     - node_modules/
-
-    
 # 定义 job
 testbuild:
   stage: testbuild
   only:
     - master
   script:
-  before_script:
     - echo "$test_SSH_PRIVATE_KEY"
     - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
     - eval $(ssh-agent -s)
@@ -37,14 +30,12 @@ testbuild:
     - scp -r "$CI_PROJECT_NAME" root@$test_server:/home/lxz/sl/deploy/childApp/
   tags:
     - vue
-
 # 定义 job
 deploybuild:
   stage: deploybuild
   only:
     - deploy
   script:
-  before_script:
     - echo "$deploy_SSH_PRIVATE_KEY"
     - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
     - eval $(ssh-agent -s)
