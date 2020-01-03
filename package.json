@@ -8,13 +8,6 @@
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
-    "core-js": "^3.4.3",
-    "quasar": "^1.0.0",
-    "vue": "^2.6.10",
-    "vue-class-component": "^7.0.2",
-    "vue-property-decorator": "^8.3.0",
-    "vue-router": "^3.1.3",
-    "vuex": "^3.1.2",
     "@turf/helpers": "^6.1.4",
     "@turf/nearest-point-to-line": "^6.0.0",
     "@turf/point-to-line-distance": "^6.0.0",
@@ -23,9 +16,17 @@
     "@types/mockjs": "^1.0.2",
     "@types/video.js": "^7.3.3",
     "axios": "^0.18.1",
+    "core-js": "^3.4.3",
+    "dingtalk-jsapi": "^2.8.33",
     "element-ui": "^2.12.0",
     "qs": "^6.9.1",
-    "video.js": "^7.6.5"
+    "quasar": "^1.0.0",
+    "video.js": "^7.6.5",
+    "vue": "^2.6.10",
+    "vue-class-component": "^7.0.2",
+    "vue-property-decorator": "^8.3.0",
+    "vue-router": "^3.1.3",
+    "vuex": "^3.1.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.1.0",
