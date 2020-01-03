@@ -11,6 +11,18 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import './quasar'
+import * as dd from 'dingtalk-jsapi'
+
+
+dd.ready(()=> {
+ ( dd.runtime.permission as any).requestAuthCode({
+      corpId: 'ding38a65ac3e948dd2135c2f4657eb6378f', // 企业id
+      onSuccess(info: any) {
+        console.log(info)
+      },
+     
+    });
+});
 
 
 let instance: any = null;

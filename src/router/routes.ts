@@ -8,18 +8,16 @@
  */
 import { RouteConfig } from 'vue-router'
 import Layout from "../layouts/MyLayout.vue";
-import Index from "../pages/Index.vue";
+import formData from "../layouts/formData.vue";
 
 const routes: RouteConfig[] = [
   {
     path: '/',
     component: Layout,
-    children: [
-      {
-        path: '', component:Index,
-      },
-
-    ]
+  },
+  {
+    path: '/formData',
+    component: formData,
   }
 ]
 
