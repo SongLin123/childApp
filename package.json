@@ -16,6 +16,7 @@
     "@types/mockjs": "^1.0.2",
     "@types/video.js": "^7.3.3",
     "axios": "^0.18.1",
+    "babel-plugin-component": "^1.1.1",
     "core-js": "^3.4.3",
     "dingtalk-jsapi": "^2.8.33",
     "element-ui": "^2.13.0",
