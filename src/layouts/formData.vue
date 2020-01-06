@@ -26,11 +26,26 @@
      <div class="formItem">
          <q-icon name="attach_file" />
      </div>
+      <div class="formItem"><!-- @click="show()" -->
+       <!-- :on-preview="handlePreview"
+            :on-remove="handleRemove" -->
+        
+        <el-upload
+            class="upload-demo"
+            :file-list="fileList"
+            :before-upload='beforeUpload'
+            action=""
+            :auto-upload="false"
+            list-type="picture">
+            <div>附件</div>
+        </el-upload>
+        <div class="formicon">
+            <q-icon name="control_point" />
+        </div>
+        
+     </div>
      <div class="formItem">
-         <div>附件</div>
-         <div class="formicon">
-              <q-icon name="control_point" />
-         </div>
+        <q-btn style="width:100%;position:fixed;bottom:0;left:0" unelevated rounded color="primary" label="提交" />
      </div>
  </div>
 </template>
@@ -40,8 +55,30 @@ import { Component, Vue, Prop, Watch } from 'vue-property-decorator';
 
 @Component
 export default class FormData extends Vue {
+    fileList= []
     text= ''
-
+    show (grid:any) {
+      this.$q.bottomSheet({
+        message: '请先选择相册吧',
+        grid,
+        actions: [
+          {
+            label: '相册',
+            icon: 'image',
+            id: 'image'
+          },
+        ]
+      }).onOk((action:any) => {
+        // console.log('Action chosen:', action.id)
+      }).onCancel(() => {
+        // console.log('Dismissed')
+      }).onDismiss(() => {
+        // console.log('I am triggered on both OK and Cancel')
+      })
+    }
+    beforeUpload(file: File) {
+        console.log(file)
+    }
  
 }
 </script>
@@ -53,7 +90,7 @@ export default class FormData extends Vue {
     height 100vh
     display grid 
     grid-template-columns 10% 90%
-    grid-template-rows 150px 50px 50px
+    grid-template-rows 150px 50px auto 50px
     .formItem
         margin-top 10px
         background white
@@ -70,6 +107,12 @@ export default class FormData extends Vue {
         text-align center
         font-size 25px
         color #282D33
+    .formItem:last-child
+        grid-column-start 1 
+        grid-column-end 3
+        grid-row-start 4
+        grid-row-end 5
+        position relative
     .formItem:nth-child(4),.formItem:nth-child(6)
         line-height 40px
         padding-left 10px
@@ -80,4 +123,12 @@ export default class FormData extends Vue {
         .formicon
             text-align center
             font-size 20px
+</style>
+<style lang="stylus">
+.upload-demo .el-upload__input
+    display none
+.el-icon-close-tip
+    display none
+.el-upload.el-upload--picture
+    outline none
 </style>

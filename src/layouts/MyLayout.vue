@@ -8,11 +8,11 @@
  -->
 <template>
   <div class="layout">
-    <q-btn-dropdown style="width:100%;border:none" label="全部">
+    <q-btn-dropdown style="width:100%;border:none" :label="checkName">
       <q-list>
-        <q-item clickable v-close-popup>
+        <q-item clickable v-close-popup v-for="(item, index) in choose" :key="index" @click="checkedItem(item)">
           <q-item-section>
-            <q-item-label>Photos</q-item-label>
+            <q-item-label>{{item.value}}<q-icon v-show="item.show" name="check" /></q-item-label> 
           </q-item-section>
         </q-item>
       </q-list>
@@ -23,11 +23,6 @@
       </div>
       <div class="cardItem">
         应急响应模块测试
-         应急响应模块测试
-          应急响应模块测试
-           应急响应模块测试
-            应急响应模块测试
-             应急响应模块测试
       </div>
       <div class="cardItem">
         <span style="color:#47478A">{{name}}</span> <span style="color:#D2D5D7">| 昨天 11:53</span>
@@ -45,8 +40,27 @@ import { Component, Vue, Prop, Watch } from 'vue-property-decorator';
 export default class Layout extends Vue {
     name = '我'
 
+    choose = [
+      {value: '全部', show: true},
+      {value: '我发起的', show: false},
+      {value: '我接收的', show: false},
+    ]
+
+    checkName = this.choose[0].value
+
     onItemClick() {
       this.$router.push('/formData')
+    }
+
+    checkedItem(item: any) {
+      this.choose.map((res: any)=> {
+        res.show = false
+        if(item.value === res.value){
+          res.show = true
+          this.checkName = item.value
+        }
+        
+      })
     }
 }
 </script>
@@ -85,4 +99,11 @@ export default class Layout extends Vue {
     .cardItem:last-child
       line-height 40px
       padding-left 20px
+</style>
+<style lang="stylus">
+.layout .q-btn__wrapper:before
+  box-shadow none
+.q-menu
+  border-radius none 
+  text-align center
 </style>

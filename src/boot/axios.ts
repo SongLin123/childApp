@@ -10,8 +10,8 @@ import axios from 'axios'
 import * as qs from "qs";
 
 
-export const getChannelList = () => {
-    return axios.post("/ms/channel_list").then(res => res.data)
+export const getToken = () => {
+    return axios.post("/service/get_corp_token").then(res => res.data)
 }
 
 
