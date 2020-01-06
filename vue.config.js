@@ -42,6 +42,13 @@ module.exports = {
           "^/handapi":"/api"
         }
       },
+      '/service': {
+        target: 'https://oapi.dingtalk.com',
+        changeOrigin: true,
+        pathRewrite:{
+          "^/service":"/service"
+        }
+      },
     },
     headers: {
       'Access-Control-Allow-Origin': '*',

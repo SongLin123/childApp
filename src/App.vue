@@ -14,9 +14,21 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-
+import { getToken } from '@/boot/axios'
 @Component
 export default class App extends Vue {
+  params= {
+    accessKey : '',
+    timestamp : 0,
+    suiteTicket: '',
+    signayure: '',
+    auth_corpid: ''
+  }
+  created() {
+    getToken().then((res)=>{
+      console.log(res)
+    })
+  }
   private mounted() {
     
   
