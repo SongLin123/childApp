@@ -45,7 +45,7 @@
         
      </div>
      <div class="formItem">
-        <q-btn style="width:100%;position:fixed;bottom:0;left:0" unelevated rounded color="primary" label="提交" />
+        <q-btn style="width:100%;position:fixed;bottom:0;left:0;margin-bottom:10px" unelevated rounded color="primary" label="提交" />
      </div>
  </div>
 </template>
@@ -90,7 +90,7 @@ export default class FormData extends Vue {
     height 100vh
     display grid 
     grid-template-columns 10% 90%
-    grid-template-rows 150px 50px auto 50px
+    grid-template-rows 150px 50px auto 70px
     .formItem
         margin-top 10px
         background white
