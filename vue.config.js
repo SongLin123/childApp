@@ -43,6 +43,13 @@ module.exports = {
         pathRewrite: {
           '^/security': '/security'
         }
+      },
+      '/api': {
+        target: 'http://192.168.63.13:28000',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': '/api'
+        }
       }
     },
     headers: {

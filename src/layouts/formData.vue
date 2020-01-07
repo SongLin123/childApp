@@ -17,7 +17,7 @@
      <div class="formItem">
          <q-icon name="person" />
      </div>
-    <div class="formItem">
+    <div class="formItem" @click="choosePerson">
         <div>请选择接收人</div>
         <div class="formicon">
             <q-icon name="chevron_right" />
@@ -33,7 +33,6 @@
         <el-upload
             class="upload-demo"
             :file-list="fileList"
-            :before-upload='beforeUpload'
             action=""
             :auto-upload="false"
             list-type="picture">
@@ -52,34 +51,37 @@
 
 <script lang="ts">
 import { Component, Vue, Prop, Watch } from 'vue-property-decorator';
-
+import * as dd from 'dingtalk-jsapi';
 @Component
 export default class FormData extends Vue {
     fileList= []
     text= ''
-    show (grid:any) {
-      this.$q.bottomSheet({
-        message: '请先选择相册吧',
-        grid,
-        actions: [
-          {
-            label: '相册',
-            icon: 'image',
-            id: 'image'
-          },
-        ]
-      }).onOk((action:any) => {
-        // console.log('Action chosen:', action.id)
-      }).onCancel(() => {
-        // console.log('Dismissed')
-      }).onDismiss(() => {
-        // console.log('I am triggered on both OK and Cancel')
-      })
+
+    choosePerson() {
+        dd.ready(()=>{
+           (dd.biz.contact as any).complexPicker({
+                title: "测试标题",
+                corpId: 'dingeb68041d2ba9538cacaaa37764f94726',
+                multiple: true,
+                limitTips:"超出了",          //超过限定人数返回提示
+                maxUsers:1000,            //最大可选人数
+                pickedUsers:[],            //已选用户
+                pickedDepartments:[],          //已选部门
+                disabledUsers:[],            //不可选用户
+                disabledDepartments:[],        //不可选部门
+                requiredUsers:[],            //必选用户（不可取消选中状态）
+                requiredDepartments:[],        //必选部门（不可取消选中状态）
+                appId:343447998,              //微应用的Id
+                permissionType:"",          //可添加权限校验，选人权限，目前只有GLOBAL这个参数
+                responseUserOnly:false,        //返回人，或者返回人和部门
+                startWithDepartmentId:0 ,   //仅支持0和-1
+                onSuccess: function(result: any) {
+                    console.log(result)
+                },
+                onFail: function(err:any) {}
+            }) 
+        })
     }
-    beforeUpload(file: File) {
-        console.log(file)
-    }
- 
 }
 </script>
 

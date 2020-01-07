@@ -10,8 +10,11 @@ import axios from 'axios'
 import * as qs from "qs";
 
 
-export const getToken = () => {
-    return axios.post("/service/get_corp_token").then(res => res.data)
+// export const getToken = () => {
+//     return axios.post("/service/get_corp_token").then(res => res.data)
+// }
+export const userId = ( params: any ) => {
+    return axios.get("/api/user/userId", {params: params}).then(res => res.data)
 }
 
 
