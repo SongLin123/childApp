@@ -148,10 +148,9 @@ export default class Form extends Vue {
     this.$q.dialog({
         title: '注意',
         message: '请直接选择个人(不能直接选择部门)',
-        cancel: true,
-        persistent: true,
+        cancel: false,
+        persistent: false,
         focus:'确认',
-        // cancel:'取消'
       }).onOk(() => {
         // console.log('OK')
         const that = this;
