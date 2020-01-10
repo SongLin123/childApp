@@ -14,11 +14,6 @@ import './quasar'
 import '@/assets/ding/ding'
 
 
-import { Upload } from 'element-ui';
-Vue.component(Upload.name, Upload);
-Vue.use(Upload);
-
-
 let instance: any = null;
 
 export async function bootstrap() {

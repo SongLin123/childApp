@@ -14,13 +14,14 @@ import '@quasar/extras/material-icons/material-icons.css'
 import '@quasar/extras/material-icons-outlined/material-icons-outlined.css'
 import '@quasar/extras/material-icons-round/material-icons-round.css'
 import '@quasar/extras/material-icons-sharp/material-icons-sharp.css'
-import { Quasar, QScrollArea, QExpansionItem, Notify, BottomSheet, Loading } from 'quasar'
+import { Quasar, QScrollArea, QExpansionItem, Notify, BottomSheet, Loading, QUploader, QList, QItem,
+   QItemSection, Dialog, QCircularProgress, QInfiniteScroll } from 'quasar'
 
 Vue.use(Quasar, {
-  config: { Loading },
+  config: { Loading, Notify },
   components: {
-    QScrollArea, QExpansionItem
+    QScrollArea, QExpansionItem, QUploader, QList, QItem, QItemSection, QCircularProgress, QInfiniteScroll
   },
   directives: { /* not needed if importStrategy is not 'manual' */ },
-  plugins: { Notify, BottomSheet, Loading }
+  plugins: { Notify, BottomSheet, Loading, Dialog }
 })
