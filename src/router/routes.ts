@@ -9,6 +9,7 @@
 import { RouteConfig } from 'vue-router'
 import Layout from "../layouts/MyLayout.vue";
 import formData from "../layouts/formData.vue";
+import formDetail from "../layouts/formDetail.vue";
 
 const routes: RouteConfig[] = [
   {
@@ -18,6 +19,10 @@ const routes: RouteConfig[] = [
   {
     path: '/formData',
     component: formData,
+  },
+  {
+    path: '/formDetail/:id',
+    component: formDetail,
   }
 ]
 
