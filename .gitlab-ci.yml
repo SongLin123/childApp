@@ -27,7 +27,7 @@ testbuild:
     - cnpm install
     - npm run build
     - ls 
-    - scp -r "$CI_PROJECT_NAME" root@$test_server:/home/lxz/sl/deploy/childApp/
+    - ssh root@$test_server rm -rf /home/lxz/sl/deploy/childApp/$CI_PROJECT_NAME && scp -r "$CI_PROJECT_NAME" root@$test_server:/home/lxz/sl/deploy/childApp/
   tags:
     - vue
 # 定义 job
