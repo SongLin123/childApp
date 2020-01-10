@@ -11,6 +11,13 @@ module.exports = {
           "preventFullImport": true
         }
       }
+    ],
+    [
+      "component",
+      {
+        "libraryName": "element-ui",
+        "styleLibraryName": "theme-chalk"
+      }
     ]
   ]
 }

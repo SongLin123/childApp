@@ -30,16 +30,18 @@ module.exports = {
     },
     proxy: {
       // proxy all requests starting with /api to jsonplaceholder
-      '/ms': {
-        target: 'http://192.168.63.249:8080',
-        changeOrigin: true,
-
-      },
-      '/handapi': {
-        target: 'http://192.168.25.54:10086',
+      '/cspace': {
+        target: 'https://oapi.dingtalk.com',
         changeOrigin: true,
         pathRewrite:{
-          "^/handapi":"/api"
+          "^/cspace":"/cspace"
+        }
+      },
+      '/security': {
+        target: 'http://192.168.63.22:8080',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/security': '/security'
         }
       },
     },

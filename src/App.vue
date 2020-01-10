@@ -17,6 +17,17 @@ import { Component, Vue } from 'vue-property-decorator';
 
 @Component
 export default class App extends Vue {
+  params= {
+    accessKey : '',
+    timestamp : 0,
+    suiteTicket: '',
+    signayure: '',
+    auth_corpid: ''
+  }
+  
+  created() {
+    
+  }
   private mounted() {
     
   

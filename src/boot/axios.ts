@@ -7,11 +7,27 @@
  * @FilePath: \mobile-cam\src\boot\axios.ts
  */
 import axios from 'axios'
-import * as qs from "qs";
 
 
-export const getChannelList = () => {
-    return axios.post("/ms/channel_list").then(res => res.data)
+export const emergencyList = (params:any) => {
+    return axios.get("/emergency/list",{params: params,
+        headers:{
+            userid: (window as any).ddconfig.user.userid,
+            token: (window as any).ddconfig.user.token
+        }
+    }).then(res => res.data)
 }
+
+export const emergencysingle = (params:any) => {
+    return axios.get("/emergency/single",{params: params,
+        headers:{
+            userid: (window as any).ddconfig.user.userid,
+            token: (window as any).ddconfig.user.token
+        }
+    }).then(res => res.data)
+}
+// export const userId = ( params: any ) => {
+//     return axios.get("/api/user/userId", {params: params}).then(res => res.data)
+// }
 
 
