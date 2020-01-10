@@ -101,11 +101,12 @@ export default class Layout extends Vue {
 
   checkedItem(item: any) {
     this.params.pageNo = 0
+    this.list = []
     this.params.type = item.type;
     
-    this.list = []
+    
     // this.$refs['uploadScroll'].updateScrollTarget()
-    this.$refs['uploadScroll'].resume()
+    (this.$refs['uploadScroll'] as any).resume()
     this.checkName = item.value;
 
     // this.fetchList(item.type, "load");
