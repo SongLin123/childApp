@@ -59,7 +59,7 @@
         gotoFile(path:any) {
             dd.ready(()=>{
                 (dd.biz.util as any).openLink({
-                url:path,//要打开链接的地址
+                url:`${location.origin}${path}`,//要打开链接的地址
                 onSuccess(result:any) {
                     /**/
                 },
