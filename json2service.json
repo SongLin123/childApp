@@ -1,0 +1,6 @@
+{
+    "url":"./api-docs.json",
+    "remoteUrl": "http://192.168.63.200:3000/api/open/plugin/export-full?type=json&pid=35&status=all&token=873f52a911149b16a771a64fbff1def72f67b3a74dc31662e680529ee083281e",
+    "type": "yapi",
+    "swaggerParser": {}
+  }

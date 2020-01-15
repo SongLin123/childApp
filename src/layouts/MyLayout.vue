@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2019-11-14 11:09:34
- * @LastEditTime : 2019-12-19 10:05:34
+ * @LastEditTime : 2020-01-15 15:57:46
  * @LastEditors  : Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \mobile-cam\src\layouts\MyLayout.vue
@@ -30,12 +30,15 @@
       </q-list>
     </q-btn-dropdown>
     <div class="infoCardBox">
-      <q-infinite-scroll @load="onLoad" :offset="250" ref="uploadScroll" :debounce='500'>
+      <q-infinite-scroll @load="onLoad" :offset="250" ref="uploadScroll" :debounce="500">
         <div class="infoCard" v-for="item in list" :key="item.id" @click="toDetail(item)">
           <div class="cardItem">
-            <q-icon name="library_books" />
+            <q-icon style="vertical-align: middle" name="library_books" />
           </div>
-          <div class="cardItem">{{item.content}}</div>
+          <div class="cardItem">
+            {{item.setTime}} ,{{item.address}},发生{{item.classification}},详情{{item.content}}
+            {{item.whetherCasualties?`死亡人数${item.deathNumber},受伤人数${item.injuredNumber}`:"无人员伤亡"}}
+          </div>
           <div class="cardItem">
             <!-- <span style="color:#47478A" v-for="it in item.receiverList.slice(0,2)" :key="it.emergencyId"> -->
             <q-avatar
@@ -73,7 +76,8 @@
 import { Component, Vue, Prop, Watch } from "vue-property-decorator";
 // import axios from "axios"
 import * as dd from "dingtalk-jsapi";
-import { emergencyList } from "@/boot/axios";
+// import { emergencyList } from "@/boot/axios";
+import { APIS, ParamslistGet } from "@/services/index";
 @Component
 export default class Layout extends Vue {
   // ding消息列表
@@ -100,53 +104,53 @@ export default class Layout extends Vue {
   }
 
   checkedItem(item: any) {
-    this.params.pageNo = 0
-    this.list = []
+    this.params.pageNo = 0;
+    this.list = [];
     this.params.type = item.type;
-    
-    
+
     // this.$refs['uploadScroll'].updateScrollTarget()
-    (this.$refs['uploadScroll'] as any).resume()
+    (this.$refs["uploadScroll"] as any).resume();
     this.checkName = item.value;
 
     // this.fetchList(item.type, "load");
     this.choose.map((res: any) => {
-      
-      res.show = (item.value === res.value)
+      res.show = item.value === res.value;
     });
     // this.fetchList()
-    
   }
 
   toDetail(data: any) {
     this.$router.push(`/formDetail/${data.id}`);
   }
 
-  async fetchList( ) {
+  async fetchList() {
     this.params.pageNo++;
 
-    return await emergencyList(this.params).then((res: any) => {
+    return await APIS.DefaultApi.listGet(this.params as any, {
+      header: {
+        userid: (window as any).ddconfig.user.userid,
+        token: (window as any).ddconfig.user.token
+      }
+    }).then((res: any) => {
       if (res.statusCode === 200) {
-       
         this.list.push(...(res.data.data as any[]));
-       
+
         return res.data.data.length < 10;
-      }else{
-         this.$q.notify({
-            message: '请求失败',
-            color: 'warning',
-            position: 'top',
-            timeout:2000
-        })
+      } else {
+        this.$q.notify({
+          message: "请求失败",
+          color: "warning",
+          position: "top",
+          timeout: 2000
+        });
       }
     });
   }
 
   // 无限滚动
   async onLoad(index: any, done: any) {
-    console.log("执行")
-    const stat=await this.fetchList();
-    done(stat)
+    const stat = await this.fetchList();
+    done(stat);
   }
 
   created() {
@@ -176,16 +180,17 @@ export default class Layout extends Vue {
   }
 
   .infoCardBox {
-    position absolute
-    top 40px
-    width 100%
-    max-height calc(100vh- 40px)
-    overflow auto
+    position: absolute;
+    top: 40px;
+    width: 100%;
+    max-height: calc(100vh - 40px);
+    overflow: auto;
+
     .infoCard {
       width: 100%;
-      height 100px
+      height: 100px;
       display: grid;
-      grid-template-columns: 25% 75%;
+      grid-template-columns: 15% 85%;
       grid-template-rows: auto 40px;
       border-bottom: 1px solid #E3E5E7;
       margin-top: 10px;
@@ -198,7 +203,6 @@ export default class Layout extends Vue {
         text-align: center;
         font-size: 25px;
         color: #0D8FFF;
-        padding-top: 10px;
       }
 
       .cardItem:nth-child(2) {
