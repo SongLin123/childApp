@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-01-09 16:06:53
- * @LastEditTime : 2020-01-15 18:15:13
+ * @LastEditTime : 2020-01-16 13:58:45
  * @LastEditors  : Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \m-tigerprawn-hand\src\WrappedFetch.ts
@@ -12,7 +12,13 @@ import qs from 'qs';
 const inst = axios.create({
     timeout: 2000,
     withCredentials: true,
-    headers: {}
+    headers: {
+
+
+        userid: (window as any).ddconfig.user.userid,
+        token: (window as any).ddconfig.user.token
+
+    }
 });
 
 // @cc: 检测 axios 响应状态

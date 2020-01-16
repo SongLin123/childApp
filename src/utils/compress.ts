@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-01-14 20:09:22
- * @LastEditTime : 2020-01-15 14:18:16
+ * @LastEditTime : 2020-01-16 19:10:45
  * @LastEditors  : Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \m-tigerprawn-special\src\utils\compress.ts
@@ -25,8 +25,12 @@ export async function compress(files: File[]) {
             canvas.height=h;
             ctx!.drawImage(img, 0, 0, w, h);
             const data = canvas.toBlob((Blob)=>{
+                new File([Blob!],"img.jpg",{
+                    type:"image/jpeg"
+                })
                 resolve(Blob);
             },"image/jpeg", quality)
+            
             // fd.set("base64", data!);
             // fd.set("fileName", item.name);
             // Axios.request({

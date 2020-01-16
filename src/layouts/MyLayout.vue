@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2019-11-14 11:09:34
- * @LastEditTime : 2020-01-15 15:57:46
+ * @LastEditTime : 2020-01-16 17:01:00
  * @LastEditors  : Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \mobile-cam\src\layouts\MyLayout.vue
@@ -45,7 +45,7 @@
               class="chooseNameavatar"
               color="primary"
               text-color="white"
-              v-for="(person,index) in item.receiverList.slice(0,3)"
+              v-for="(person,index) in item.dutyLeaderList.slice(0,3)"
               :key="person.receivedUserId"
             >
               <span
@@ -126,13 +126,9 @@ export default class Layout extends Vue {
   async fetchList() {
     this.params.pageNo++;
 
-    return await APIS.DefaultApi.listGet(this.params as any, {
-      header: {
-        userid: (window as any).ddconfig.user.userid,
-        token: (window as any).ddconfig.user.token
-      }
-    }).then((res: any) => {
+    return await APIS.DefaultApi.listGet(this.params as any).then((res: any) => {
       if (res.statusCode === 200) {
+        console.log(res.data.data)
         this.list.push(...(res.data.data as any[]));
 
         return res.data.data.length < 10;
