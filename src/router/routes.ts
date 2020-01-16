@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2019-11-14 11:32:35
- * @LastEditTime : 2019-12-19 10:18:24
+ * @LastEditTime : 2020-01-16 15:05:33
  * @LastEditors  : Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \mobile-cam\src\router\routes.ts
@@ -22,7 +22,7 @@ const routes: RouteConfig[] = [
   },
   {
     path: '/formDetail/:id',
-    component: formDetail,
+    component: formData,
   }
 ]
 

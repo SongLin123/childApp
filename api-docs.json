@@ -1,0 +1,427 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "应急响应",
+    "version": "last",
+    "description": "unknown"
+  },
+  "basePath": "/emergency",
+  "tags": [
+    {
+      "name": "公共分类",
+      "description": "公共分类"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/classificationList": {
+      "get": {
+        "tags": [
+          "公共分类"
+        ],
+        "summary": "事件分类查询",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "string",
+              "format": "binary",
+              "default": "{\n    \"statusCode\": 200,\n    \"message\": \"成功\",\n    \"data\": {\n        \"data\": [\n            \"安全生产\",\n            \"火灾事故\",\n            \"大面积停电\",\n            \"供水行业\",\n            \"食物中毒\",\n            \"极端天气\",\n            \"危险化学品\",\n            \"上南八村\",\n            \"环境事件\",\n            \"群体性事件\",\n            \"燃气事故\",\n            \"其他\"\n        ]\n    }\n}"
+            }
+          }
+        }
+      }
+    },
+    "/single": {
+      "get": {
+        "tags": [
+          "公共分类"
+        ],
+        "summary": "单个详情",
+        "description": "",
+        "parameters": [
+          {
+            "name": "emergencyId",
+            "in": "query",
+            "required": true,
+            "description": "事件响应唯一标识",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "statusCode": {
+                  "type": "number"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "number"
+                          },
+                          "createdUserId": {
+                            "type": "null"
+                          },
+                          "createdTime": {
+                            "type": "string"
+                          },
+                          "setTime": {
+                            "type": "null"
+                          },
+                          "committeeName": {
+                            "type": "null"
+                          },
+                          "address": {
+                            "type": "null"
+                          },
+                          "classification": {
+                            "type": "null"
+                          },
+                          "whetherCasualties": {
+                            "type": "boolean"
+                          },
+                          "injuredNumber": {
+                            "type": "null"
+                          },
+                          "deathNumber": {
+                            "type": "null"
+                          },
+                          "content": {
+                            "type": "string"
+                          },
+                          "attachmentList": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "receiverList": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "count": {
+                      "type": "number"
+                    }
+                  }
+                }
+              },
+              "title": "Single"
+            }
+          }
+        }
+      }
+    },
+    "/committeeList": {
+      "get": {
+        "tags": [
+          "公共分类"
+        ],
+        "summary": "居委查询",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "string",
+              "format": "binary",
+              "default": "{\n    \"statusCode\": 200,\n    \"message\": \"成功\",\n    \"data\": {\n        \"data\": [\n            \"上南一村\",\n            \"上南二村\",\n            \"上南三村\",\n            \"上南四村\",\n            \"上南五村\",\n            \"上南六村\",\n            \"上南七村\",\n            \"上南八村\",\n            \"上南九村\",\n            \"上南十村(1)\",\n            \"上南十村(2)\",\n            \"上南十一村\",\n            \"上南十二村\",\n            \"雪野二村\",\n            \"齐一\",\n            \"齐二\",\n            \"齐三\",\n            \"齐四\",\n            \"齐五\",\n            \"齐七\",\n            \"齐八\",\n            \"昌四\",\n            \"昌五\",\n            \"昌五、昌七\",\n            \"昌七\",\n            \"云台一\",\n            \"云台二\",\n            \"云莲一\",\n            \"都市庭院\",\n            \"昌里花园\",\n            \"上南花苑\",\n            \"川新\",\n            \"恒大\"\n        ]\n    }\n}"
+            }
+          }
+        }
+      }
+    },
+    "/list": {
+      "get": {
+        "tags": [
+          "公共分类"
+        ],
+        "summary": "展示详情",
+        "description": "",
+        "parameters": [
+          {
+            "name": "pageNo",
+            "in": "query",
+            "required": true,
+            "description": "当前页数",
+            "type": "string"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": true,
+            "description": "每页容量",
+            "type": "string"
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "required": true,
+            "description": "类型（全部：默认0，自己发出：1，接收：2）",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "statusCode": {
+                  "type": "number"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "number"
+                          },
+                          "createdUserId": {
+                            "type": "string"
+                          },
+                          "createdTime": {
+                            "type": "string"
+                          },
+                          "setTime": {
+                            "type": "null"
+                          },
+                          "committeeName": {
+                            "type": "null"
+                          },
+                          "address": {
+                            "type": "string"
+                          },
+                          "classification": {
+                            "type": "string"
+                          },
+                          "whetherCasualties": {
+                            "type": "boolean"
+                          },
+                          "injuredNumber": {
+                            "type": "null"
+                          },
+                          "deathNumber": {
+                            "type": "null"
+                          },
+                          "content": {
+                            "type": "string"
+                          },
+                          "attachmentList": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "receiverList": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "number"
+                                },
+                                "emergencyId": {
+                                  "type": "number"
+                                },
+                                "receivedUserId": {
+                                  "type": "string"
+                                },
+                                "name": {
+                                  "type": "string"
+                                },
+                                "avatar": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "id",
+                                "emergencyId",
+                                "receivedUserId",
+                                "name",
+                                "avatar"
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "count": {
+                      "type": "number"
+                    }
+                  }
+                }
+              },
+              "title": "List"
+            }
+          }
+        }
+      }
+    },
+    "/add": {
+      "post": {
+        "tags": [
+          "公共分类"
+        ],
+        "summary": "添加应急响应事件",
+        "description": "",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "name": "setTime",
+            "in": "formData",
+            "required": false,
+            "description": "设置时间Date类型",
+            "type": "string"
+          },
+          {
+            "name": "committeeName",
+            "in": "formData",
+            "required": false,
+            "description": "居委名字",
+            "type": "string"
+          },
+          {
+            "name": "address",
+            "in": "formData",
+            "required": false,
+            "description": "地址",
+            "type": "string"
+          },
+          {
+            "name": "classification",
+            "in": "formData",
+            "required": false,
+            "description": "事件分类",
+            "type": "string"
+          },
+          {
+            "name": "whetherCasualties",
+            "in": "formData",
+            "required": false,
+            "description": "有无人员伤亡（布尔类型）",
+            "type": "string"
+          },
+          {
+            "name": "injuredNumber",
+            "in": "formData",
+            "required": false,
+            "description": "受伤人数",
+            "type": "string"
+          },
+          {
+            "name": "deathNumber",
+            "in": "formData",
+            "required": false,
+            "description": "死亡人数",
+            "type": "string"
+          },
+          {
+            "name": "content",
+            "in": "formData",
+            "required": true,
+            "description": "内容",
+            "type": "string"
+          },
+          {
+            "name": "dutyLeader",
+            "in": "formData",
+            "required": false,
+            "description": "当日值班领导（数组）",
+            "type": "string"
+          },
+          {
+            "name": "leadersInCharge",
+            "in": "formData",
+            "required": false,
+            "description": "分管领导（数组）",
+            "type": "string"
+          },
+          {
+            "name": "executiveLeader",
+            "in": "formData",
+            "required": false,
+            "description": "主管领导（数组）",
+            "type": "string"
+          },
+          {
+            "name": "disposalDepartment",
+            "in": "formData",
+            "required": false,
+            "description": "处置部门（数组）",
+            "type": "string"
+          },
+          {
+            "name": "file",
+            "in": "formData",
+            "required": false,
+            "description": "文件（数组）",
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "statusCode": {
+                  "type": "number",
+                  "description": "状态码"
+                },
+                "message": {
+                  "type": "string",
+                  "description": "状态描述"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number",
+                      "description": "应急响应唯一标识"
+                    }
+                  },
+                  "description": "数据"
+                }
+              },
+              "title": "Add"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,14 +1,16 @@
 /*
  * @Author: your name
  * @Date: 2019-12-18 18:24:31
- * @LastEditTime : 2019-12-18 18:26:57
+ * @LastEditTime : 2020-01-15 14:33:54
  * @LastEditors  : Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \tiger-prawn-mobile-mbhand\vue.config.js
  */
 const packageName = require('./package.json').name;
 const path = require("path")
-
+function resolve(dir) {
+  return path.join(__dirname, dir)
+}
 module.exports = {
   pluginOptions: {
     quasar: {
@@ -60,4 +62,9 @@ module.exports = {
       jsonpFunction: `webpackJsonp_${packageName}`,
     },
   },
+  chainWebpack: (config) => {
+    config.resolve.alias
+      .set('@ajax', resolve('src/WrappedFetch.ts'))
+
+  }
 }

@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2019-12-18 18:24:31
- * @LastEditTime : 2019-12-19 10:28:08
+ * @LastEditTime : 2020-01-16 15:58:29
  * @LastEditors  : Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \tiger-prawn-mobile-mbhand\src\quasar.ts
@@ -14,10 +14,13 @@ import '@quasar/extras/material-icons/material-icons.css'
 import '@quasar/extras/material-icons-outlined/material-icons-outlined.css'
 import '@quasar/extras/material-icons-round/material-icons-round.css'
 import '@quasar/extras/material-icons-sharp/material-icons-sharp.css'
-import { Quasar, QScrollArea, QExpansionItem, Notify, BottomSheet, Loading, QUploader, QList, QItem,
-   QItemSection, Dialog, QCircularProgress, QInfiniteScroll } from 'quasar'
+import {
+  Quasar, QScrollArea, QExpansionItem, Notify, BottomSheet, Loading, QUploader, QList, QItem,
+  QItemSection, Dialog, QCircularProgress, QInfiniteScroll
+} from 'quasar'
 
 Vue.use(Quasar, {
+  // lang: require("quasar/lang/zh-hans.js"),
   config: { Loading, Notify },
   components: {
     QScrollArea, QExpansionItem, QUploader, QList, QItem, QItemSection, QCircularProgress, QInfiniteScroll

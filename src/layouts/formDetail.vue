@@ -38,14 +38,20 @@
 <script lang="ts">
     import { Vue, Component } from 'vue-property-decorator'
     import * as dd from "dingtalk-jsapi";
-    import { emergencysingle } from '@/boot/axios'
+    // import { emergencysingle } from '@/boot/axios'
+    import { APIS } from "@/services/index";
     @Component
     export default class Formdetail extends Vue {
         resPerson= []
         text= ''
         contents = {}
         single(id :any) {
-            emergencysingle({emergencyId:id}).then((res:any)=> {
+             APIS.DefaultApi.singleGet({emergencyId:id},{
+                 header:{
+                     userid: (window as any).ddconfig.user.userid,
+            token: (window as any).ddconfig.user.token
+                 }
+             }).then((res:any)=> {
                 const response = res
                 if(response.statusCode ===200){
                     this.contents = res.data.data[0]
