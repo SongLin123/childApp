@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2019-11-14 11:09:34
- * @LastEditTime : 2020-01-17 09:49:14
+ * @LastEditTime : 2020-01-17 10:25:21
  * @LastEditors  : Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \mobile-cam\src\layouts\MyLayout.vue
@@ -36,8 +36,10 @@
             <q-icon style="vertical-align: middle" name="library_books" />
           </div>
           <div class="cardItem">
-            {{item.setTime}} ,{{item.address}},发生{{item.classification}}事件,详情{{item.content}}
+            {{item.setTime}} ,{{item.committeeName}}{{item.address}},发生{{item.classification}}事件,详情{{item.content}}
             {{item.whetherCasualties?`死亡人数${item.deathNumber},受伤人数${item.injuredNumber}`:"无人员伤亡"}}
+    
+          
           </div>
           <div class="cardItem">
             <!-- <span style="color:#47478A" v-for="it in item.receiverList.slice(0,2)" :key="it.emergencyId"> -->
@@ -57,7 +59,7 @@
             </q-avatar>
             <!-- {{it.name}}
             </span>-->
-            <span style="color:#D2D5D7">| {{item.createdTime}}</span>
+            <span style="color:#D2D5D7">| {{item.setTime}}</span>
           </div>
         </div>
         <template v-slot:loading>
@@ -184,7 +186,7 @@ export default class Layout extends Vue {
 
     .infoCard {
       width: 100%;
-      height: 100px;
+      // height: 100px;
       display: grid;
       grid-template-columns: 15% 85%;
       grid-template-rows: auto 40px;
