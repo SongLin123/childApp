@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2019-11-14 11:09:34
- * @LastEditTime : 2020-01-16 17:01:00
+ * @LastEditTime : 2020-01-17 09:49:14
  * @LastEditors  : Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \mobile-cam\src\layouts\MyLayout.vue
@@ -36,7 +36,7 @@
             <q-icon style="vertical-align: middle" name="library_books" />
           </div>
           <div class="cardItem">
-            {{item.setTime}} ,{{item.address}},发生{{item.classification}},详情{{item.content}}
+            {{item.setTime}} ,{{item.address}},发生{{item.classification}}事件,详情{{item.content}}
             {{item.whetherCasualties?`死亡人数${item.deathNumber},受伤人数${item.injuredNumber}`:"无人员伤亡"}}
           </div>
           <div class="cardItem">
