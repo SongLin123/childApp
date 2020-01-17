@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2019-11-14 11:09:34
- * @LastEditTime : 2020-01-17 09:49:25
+ * @LastEditTime : 2020-01-17 10:24:49
  * @LastEditors  : Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \mobile-cam\src\layouts\MyLayout.vue
@@ -370,7 +370,7 @@ export default class Form extends Vue {
           text: urls,
           url: urls //附件点击后跳转url
         }, // 附件信息
-        text: `${this.form.setTime} ,${this.form.address},发生${
+        text: `${this.form.setTime} ,${this.form.committeeName}${this.form.address},发生${
           this.form.classification
         }事件,详情${this.form.content}
             ${
