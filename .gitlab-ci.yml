@@ -51,7 +51,7 @@ deploybuild:
     - cnpm install
     - npm run build
     - ls 
-    - ssh root@$deploy_server rm -rf /home/chen/sl/srs/html/childApp/$CI_PROJECT_NAME && scp -r "$CI_PROJECT_NAME" root@$deploy_server:/home/chen/sl/srs/html/childApp/
+    - ssh frontend@$deploy_server rm -rf /export/apps/nginx/html/childApp/$CI_PROJECT_NAME && scp -r "$CI_PROJECT_NAME" frontend@$deploy_server:/export/apps/nginx/html/childApp/
   tags:
     - vue
 
