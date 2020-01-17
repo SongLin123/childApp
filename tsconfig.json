@@ -4,6 +4,7 @@
     "module": "esnext",
     "strict": true,
     "jsx": "preserve",
+    "allowJs": true,
     "importHelpers": true,
     "moduleResolution": "node",
     "experimentalDecorators": true,
@@ -17,7 +18,8 @@
     "paths": {
       "@/*": [
         "src/*"
-      ]
+      ],
+      "@ajax": ["src/WrappedFetch.ts"]
     },
     "lib": [
       "esnext",
