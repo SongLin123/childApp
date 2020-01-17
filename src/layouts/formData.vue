@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2019-11-14 11:09:34
- * @LastEditTime : 2020-01-16 19:02:32
+ * @LastEditTime : 2020-01-17 09:49:25
  * @LastEditors  : Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \mobile-cam\src\layouts\MyLayout.vue
@@ -372,7 +372,7 @@ export default class Form extends Vue {
         }, // 附件信息
         text: `${this.form.setTime} ,${this.form.address},发生${
           this.form.classification
-        },详情${this.form.content}
+        }事件,详情${this.form.content}
             ${
               this.form.whetherCasualties
                 ? `死亡人数${this.form.deathNumber},受伤人数${this.form.injuredNumber}`
