@@ -15,8 +15,8 @@ const inst = axios.create({
     headers: {
 
 
-        userid: (window as any).ddconfig.user.userid,
-        token: (window as any).ddconfig.user.token
+        // userid: (window as any).ddconfig.user.userid,
+        // token: (window as any).ddconfig.user.token
 
     }
 });

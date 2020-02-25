@@ -16,14 +16,14 @@ import '@quasar/extras/material-icons-round/material-icons-round.css'
 import '@quasar/extras/material-icons-sharp/material-icons-sharp.css'
 import {
   Quasar, QScrollArea, QExpansionItem, Notify, BottomSheet, Loading, QUploader, QList, QItem,
-  QItemSection, Dialog, QCircularProgress, QInfiniteScroll
+  QItemSection, Dialog, QCircularProgress, QInfiniteScroll,QDate
 } from 'quasar'
 
 Vue.use(Quasar, {
   // lang: require("quasar/lang/zh-hans.js"),
   config: { Loading, Notify },
   components: {
-    QScrollArea, QExpansionItem, QUploader, QList, QItem, QItemSection, QCircularProgress, QInfiniteScroll
+    QScrollArea, QExpansionItem, QUploader, QList, QItem, QItemSection, QCircularProgress, QInfiniteScroll,QDate
   },
   directives: { /* not needed if importStrategy is not 'manual' */ },
   plugins: { Notify, BottomSheet, Loading, Dialog }

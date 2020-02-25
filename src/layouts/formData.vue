@@ -11,6 +11,10 @@
     <div class="companyitem one">
       <div class="formitem">日期</div>
       <div class="formitem">
+        <q-input :disable="readOnly" v-model="form.TITLE" placeholder="请填写标题" />
+      </div>
+      <div class="formitem">日期</div>
+      <div class="formitem">
         <q-input :disable="readOnly" filled v-model="form.setTime">
           <template v-slot:prepend>
             <q-icon name="event" class="cursor-pointer">
@@ -556,7 +560,7 @@ export default class Form extends Vue {
 
   .companyitem {
     box-sizing: border-box;
-    padding: 15px 0;
+    padding: 0 0 15px;
     flex: 1;
     display: grid;
     grid-template-columns: 25% 75%;
