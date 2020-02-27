@@ -20,6 +20,7 @@
     "babel-plugin-component": "^1.1.1",
     "core-js": "^3.4.3",
     "dingtalk-jsapi": "^2.8.33",
+    "node-sass": "^4.13.0",
     "qs": "^6.9.1",
     "quasar": "^1.0.0",
     "video.js": "^7.6.5",

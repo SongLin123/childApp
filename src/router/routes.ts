@@ -7,7 +7,7 @@
  * @FilePath: \mobile-cam\src\router\routes.ts
  */
 import { RouteConfig } from 'vue-router'
-import Layout from "../layouts/MyLayout.vue";
+import Layout from "../layouts/index.vue";
 import formData from "../layouts/formData.vue";
 import formDetail from "../layouts/formDetail.vue";
 
@@ -17,13 +17,29 @@ const routes: RouteConfig[] = [
     component: Layout,
   },
   {
+    path: '/addWarning',
+    component:()=>import('@/layouts/addWarning.vue')
+  },
+  {
     path: '/formData',
     component: formData,
   },
   {
+    path: '/datezb',
+    component: ()=>import('@/layouts/dateZb.vue'),
+  },
+  {
     path: '/formDetail/:id',
     component: formData,
-  }
+  },
+  {
+    path: '/warningCard',
+    component: ()=>import('@/layouts/warningCard.vue'),
+  },
+  {
+    path: '/warningCardList',
+    component: ()=>import('@/layouts/warningCardList.vue'),
+  },
 ]
 
 // Always leave this as last one

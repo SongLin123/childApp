@@ -8,7 +8,9 @@
  -->
 <template>
   <div>
-    <router-view />
+    <transition name="router-anim">
+      <router-view />
+    </transition>
   </div>
 </template>
 
@@ -34,3 +36,12 @@ export default class App extends Vue {
   }
 }
 </script>
+<style lang="stylus" scoped>
+.router-anim-enter
+  transform translate3d(100%,0,0)
+.router-anim-leave-to
+  transform translate3d(-100%,0,0)
+  display none
+.router-anim-enter-active,.router-anim-leave-active
+  transition all 0.4s
+</style>
