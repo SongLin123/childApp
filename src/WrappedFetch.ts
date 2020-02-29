@@ -8,6 +8,7 @@
  */
 import axios, { AxiosError } from 'axios';
 import qs from 'qs';
+console.log((window as any))
 
 const inst = axios.create({
     timeout: 2000,
@@ -15,8 +16,8 @@ const inst = axios.create({
     headers: {
 
 
-        // userid: (window as any).ddconfig.user.userid,
-        // token: (window as any).ddconfig.user.token
+        userid: (window as any).ddconfig.user.userid,
+        token: (window as any).ddconfig.user.token
 
     }
 });

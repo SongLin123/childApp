@@ -28,7 +28,7 @@ export default class App extends Vue {
   }
   
   created() {
-    
+    console.log((window as any).ddconfig)
   }
   private mounted() {
     

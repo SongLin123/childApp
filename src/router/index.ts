@@ -12,7 +12,7 @@ import VueRouter from 'vue-router'
 import routes from './routes'
 
 Vue.use(VueRouter)
-
+console.log((window as any))
 /*
  * If not building with SSR mode, you can
  * directly export the Router instantiation
