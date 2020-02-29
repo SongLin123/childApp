@@ -40,7 +40,7 @@ module.exports = {
         }
       },
       '/security': {
-        target: 'http://192.168.63.22:8080',
+        target: 'http://192.168.63.185:8090',
         changeOrigin: true,
         pathRewrite: {
           '^/security': '/security'
