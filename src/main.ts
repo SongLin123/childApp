@@ -1,8 +1,8 @@
 /*
  * @Author: your name
  * @Date: 2019-12-18 18:24:31
- * @LastEditTime : 2019-12-19 11:13:55
- * @LastEditors  : Please set LastEditors
+ * @LastEditTime: 2020-02-29 19:59:52
+ * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \tiger-prawn-mobile-mbhand\src\main.ts
  */
@@ -21,7 +21,7 @@ export async function bootstrap() {
 }
 
 export async function mount() {
-
+console.log(1111111111111111)
   instance = new Vue({
     el:"#app",
     router,

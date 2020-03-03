@@ -1,14 +1,13 @@
 /*
  * @Author: your name
  * @Date: 2020-01-09 16:06:53
- * @LastEditTime : 2020-01-16 13:58:45
- * @LastEditors  : Please set LastEditors
+ * @LastEditTime: 2020-02-29 20:16:32
+ * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \m-tigerprawn-hand\src\WrappedFetch.ts
  */
 import axios, { AxiosError } from 'axios';
 import qs from 'qs';
-console.log((window as any))
 
 const inst = axios.create({
     timeout: 2000,
@@ -16,8 +15,8 @@ const inst = axios.create({
     headers: {
 
 
-        userid: (window as any).ddconfig.user.userid,
-        token: (window as any).ddconfig.user.token
+        // userid: (window as any).ddconfig.user.userid,
+        // token: (window as any).ddconfig.user.token
 
     }
 });
